@@ -1,24 +1,31 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Route } from 'react-router-dom';
+import './App.scss';
+import Users from './users/Users';
+import Signin from './auth/Signin';
+import Register from './auth/Register';
+import Navigation from './components/Nav'
+
+const Home = props => {
+  return (
+    <div>
+      <h1>Click Register Or Sign In To Start</h1>
+    </div>
+  )
+}
 
 class App extends Component {
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <nav>
+            <Navigation/>
+          </nav>
+        <Route path='/' component={Home} exact></Route>
+        <Route path='/signin' component={Signin} exact></Route>
+        <Route path='/users' component={Users} exact></Route>
+        <Route path='/register' component={Register} exact></Route> 
         </header>
       </div>
     );
