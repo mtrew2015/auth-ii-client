@@ -58,8 +58,8 @@ class Signin extends Component {
       localStorage.setItem('jwt', res.data.token);
       if (res.data.token){
         this.setState({isAuthenticated: true}
-        );
-        }
+        )};
+      this.props.login();
     }).catch(err => {
       console.log('err from login', err);
     });
